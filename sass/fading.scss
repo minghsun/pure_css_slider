@@ -1,0 +1,23 @@
+@import "compass/css3";
+@import "main";
+
+.slides{
+	width: $slide_width;
+	height: $slide_height;
+}
+.slide{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	@include transition-property(opacity);
+	@include transition-duration(.4s);
+	@include transition-timing-function(ease-in);
+}
+
+@for $i from 1 through $total_slides{
+	#page-control#{$i}:checked ~ .slidesWrapper .slide:nth-child(#{$i}){
+		opacity: 1;
+		z-index: 10;
+	}
+}

@@ -1,0 +1,24 @@
+@import "compass/css3";
+@import "main";
+
+.slidesWrapper{
+	overflow: hidden;
+}
+.slides{
+	position: absolute;
+	width: $slide_width * $total_slides;
+	height: $slide_height;
+	@include transition-property(left);
+	@include transition-duration(.4s);
+	@include transition-timing-function(ease-in);
+}
+.slide{
+	float: left;
+}
+
+@for $i from 1 through $total_slides{
+	#page-control#{$i}:checked ~ .slidesWrapper .slides{
+		left: - (#{($i - 1) * $slide_width});
+	}
+}
+

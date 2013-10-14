@@ -1,0 +1,178 @@
+@import "compass/reset";
+@import "compass/css3";
+
+$total_slides:5;
+$slide_width:400px;
+$slide_height:300px;
+$arrow_size:50px;
+$slide_font_size:72px;
+
+$color1:#ff9ea9;
+$color2:#ffdc9e;
+$color3:#b0e1a8;
+$color4:#abebfb;
+$color5:#b8b4e0;
+
+body{
+	font-family: sans-serif;
+	background-color: #efefef;
+}
+.fxs{
+	margin-top: 30px;
+	text-align: center;
+}
+.fx{
+	display: inline-block;
+	color: white;
+	padding: 10px 20px;
+	cursor: pointer;
+	&:nth-child(1){
+		background-color: $color1;
+		&:hover,&.active{
+			background-color: darken($color1,10%);
+		}
+	}
+	&:nth-child(2){
+		background-color: $color2;
+		&:hover,&.active{
+			background-color: darken($color2,10%);
+		}
+	}
+	&:nth-child(3){
+		background-color: $color3;
+		&:hover,&.active{
+			background-color: darken($color3,10%);
+		}
+	}
+	&:nth-child(4){
+		background-color: $color4;
+		&:hover,&.active{
+			background-color: darken($color4,10%);
+		}
+	}
+	&:nth-child(5){
+		background-color: $color5;
+		&:hover,&.active{
+			background-color: darken($color5,10%);
+		}
+	}
+}
+.slider-outWrapper{
+	position: relative;
+	margin: 30px auto;
+	width: $slide_width;
+	height: $slide_height;
+}
+input[name="page-control"]{
+	display: none;
+}
+label[for^="page-control"]{
+	.next,.prev{
+		display: none;
+	}
+}
+.page-controller{
+	.next,.prev{
+		position: absolute;
+		top: $slide_height / 2 - $arrow_size/2;
+		width: 0px;
+		height: 0px;
+		border: $arrow_size/2 solid transparent;
+		cursor: pointer;
+	}
+	.next{
+		right: -$arrow_size;
+		border-right-width: 0;
+		border-left-color: #ff9ea9;
+	}
+	.prev{
+		left: -$arrow_size;
+		border-left-width: 0;
+		border-right-color: #ff9ea9;
+	}
+}
+@for $i from 1 through $total_slides{
+	#page-control#{$i}:checked ~ label[for="page-control#{$i}"]{
+		.next,.prev{
+			display: none;
+		}
+	}
+	@if $i==1{
+		#page-control#{$i}:checked ~ label[for="page-control#{$total_slides}"] .prev{
+			display: block;
+		}
+		#page-control#{$i}:checked ~ label[for="page-control#{$i+1}"] .next{
+			display: block;
+		}
+	}@else if $i==$total_slides{
+		#page-control#{$i}:checked ~ label[for="page-control#{($i - 1)}"] .prev{
+			display: block;
+		}
+		#page-control#{$i}:checked ~ label[for="page-control#{1}"] .next{
+			display: block;
+		}
+
+	}@else{
+		#page-control#{$i}:checked ~ label[for="page-control#{($i - 1)}"] .prev{
+			display: block;
+		}
+		#page-control#{$i}:checked ~ label[for="page-control#{$i+1}"] .next{
+			display: block;
+		}
+
+	}
+	#page-control#{$i}:checked ~ .pagination i:nth-child(#{$i}){
+		opacity: 1;
+	}
+}
+.slidesWrapper{
+	position: relative;
+	width: $slide_width;
+	height: $slide_height;
+}
+.slide{
+	width: $slide_width;
+	height: $slide_height;
+	line-height:$slide_height;
+	text-align: center;
+	font-size: $slide_font_size;
+	font-family: 'Medula One';
+	color: white;
+	img{
+		width: $slide_width;
+		height: $slide_height;
+	}
+	&:nth-child(1){
+		background-color: $color1;
+	}
+	&:nth-child(2){
+		background-color: $color2;
+	}
+	&:nth-child(3){
+		background-color: $color3;
+	}
+	&:nth-child(4){
+		background-color: $color4;
+	}
+	&:nth-child(5){
+		background-color: $color5;
+	}
+}
+
+.pagination{
+	position: absolute;
+	bottom: -35px;
+	left: 0;
+	width: $slide_width;
+	height: 25px;
+	text-align: center;
+	i{
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		margin: 2px;
+		border-radius: 50%;
+		background-color: #ff9ea9;
+		opacity: .35;
+	}
+}

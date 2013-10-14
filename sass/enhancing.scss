@@ -1,0 +1,58 @@
+@import "compass/css3";
+@import "main";
+@import "_animation_mixin";
+
+@include setKeyframe(toFront){
+	0%{
+		opacity: 0;
+	}
+	70%{
+		opacity: 1;
+		width: $slide_width * 1.06;
+		height: $slide_height * 1.06;
+		font-size: $slide_font_size * 1.06;
+		top: -3%;
+		left: -3%;
+	}
+	100%{
+		opacity: 1;
+		width: $slide_width * 1;
+		height: $slide_height * 1;
+		font-size: $slide_font_size * 1;
+		top: 0;
+		left: 0;
+	}
+}
+@include setKeyframe(toBack){
+	0%,70%{
+		opacity: 1;
+		z-index: 99;
+	}
+	100%{
+		opacity: 0;
+		z-index: 0;
+	}
+}
+
+.slides{
+	width: $slide_width;
+	height: $slide_height;
+}
+.slide{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	@include animation(toBack,.3s,linear,0,1);
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@for $i from 1 through $total_slides{
+	#page-control#{$i}:checked ~ .slidesWrapper .slide:nth-child(#{$i}){
+		opacity: 1;
+		z-index: 100;
+		@include animation(toFront,.3s,linear,0,1);
+	}
+}

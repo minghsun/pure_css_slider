@@ -1,0 +1,315 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #efefef;
+}
+
+.fxs {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.fx {
+  display: inline-block;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.fx:nth-child(1) {
+  background-color: #ff9ea9;
+}
+.fx:nth-child(1):hover, .fx:nth-child(1).active {
+  background-color: #ff6b7c;
+}
+.fx:nth-child(2) {
+  background-color: #ffdc9e;
+}
+.fx:nth-child(2):hover, .fx:nth-child(2).active {
+  background-color: #ffca6b;
+}
+.fx:nth-child(3) {
+  background-color: #b0e1a8;
+}
+.fx:nth-child(3):hover, .fx:nth-child(3).active {
+  background-color: #8ed482;
+}
+.fx:nth-child(4) {
+  background-color: #abebfb;
+}
+.fx:nth-child(4):hover, .fx:nth-child(4).active {
+  background-color: #7adff9;
+}
+.fx:nth-child(5) {
+  background-color: #b8b4e0;
+}
+.fx:nth-child(5):hover, .fx:nth-child(5).active {
+  background-color: #9690d1;
+}
+
+.slider-outWrapper {
+  position: relative;
+  margin: 30px auto;
+  width: 400px;
+  height: 300px;
+}
+
+input[name="page-control"] {
+  display: none;
+}
+
+label[for^="page-control"] .next, label[for^="page-control"] .prev {
+  display: none;
+}
+
+.page-controller .next, .page-controller .prev {
+  position: absolute;
+  top: 125px;
+  width: 0px;
+  height: 0px;
+  border: 25px solid transparent;
+  cursor: pointer;
+}
+.page-controller .next {
+  right: -50px;
+  border-right-width: 0;
+  border-left-color: #ff9ea9;
+}
+.page-controller .prev {
+  left: -50px;
+  border-left-width: 0;
+  border-right-color: #ff9ea9;
+}
+
+#page-control1:checked ~ label[for="page-control1"] .next, #page-control1:checked ~ label[for="page-control1"] .prev {
+  display: none;
+}
+
+#page-control1:checked ~ label[for="page-control5"] .prev {
+  display: block;
+}
+
+#page-control1:checked ~ label[for="page-control2"] .next {
+  display: block;
+}
+
+#page-control1:checked ~ .pagination i:nth-child(1) {
+  opacity: 1;
+}
+
+#page-control2:checked ~ label[for="page-control2"] .next, #page-control2:checked ~ label[for="page-control2"] .prev {
+  display: none;
+}
+
+#page-control2:checked ~ label[for="page-control1"] .prev {
+  display: block;
+}
+
+#page-control2:checked ~ label[for="page-control3"] .next {
+  display: block;
+}
+
+#page-control2:checked ~ .pagination i:nth-child(2) {
+  opacity: 1;
+}
+
+#page-control3:checked ~ label[for="page-control3"] .next, #page-control3:checked ~ label[for="page-control3"] .prev {
+  display: none;
+}
+
+#page-control3:checked ~ label[for="page-control2"] .prev {
+  display: block;
+}
+
+#page-control3:checked ~ label[for="page-control4"] .next {
+  display: block;
+}
+
+#page-control3:checked ~ .pagination i:nth-child(3) {
+  opacity: 1;
+}
+
+#page-control4:checked ~ label[for="page-control4"] .next, #page-control4:checked ~ label[for="page-control4"] .prev {
+  display: none;
+}
+
+#page-control4:checked ~ label[for="page-control3"] .prev {
+  display: block;
+}
+
+#page-control4:checked ~ label[for="page-control5"] .next {
+  display: block;
+}
+
+#page-control4:checked ~ .pagination i:nth-child(4) {
+  opacity: 1;
+}
+
+#page-control5:checked ~ label[for="page-control5"] .next, #page-control5:checked ~ label[for="page-control5"] .prev {
+  display: none;
+}
+
+#page-control5:checked ~ label[for="page-control4"] .prev {
+  display: block;
+}
+
+#page-control5:checked ~ label[for="page-control1"] .next {
+  display: block;
+}
+
+#page-control5:checked ~ .pagination i:nth-child(5) {
+  opacity: 1;
+}
+
+.slidesWrapper {
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.slide {
+  width: 400px;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  font-size: 72px;
+  font-family: 'Medula One';
+  color: white;
+}
+.slide img {
+  width: 400px;
+  height: 300px;
+}
+.slide:nth-child(1) {
+  background-color: #ff9ea9;
+}
+.slide:nth-child(2) {
+  background-color: #ffdc9e;
+}
+.slide:nth-child(3) {
+  background-color: #b0e1a8;
+}
+.slide:nth-child(4) {
+  background-color: #abebfb;
+}
+.slide:nth-child(5) {
+  background-color: #b8b4e0;
+}
+
+.pagination {
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  width: 400px;
+  height: 25px;
+  text-align: center;
+}
+.pagination i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 2px;
+  border-radius: 50%;
+  background-color: #ff9ea9;
+  opacity: .35;
+}
+
+.slidesWrapper {
+  overflow: hidden;
+}
+
+.slides {
+  position: absolute;
+  width: 2000px;
+  height: 300px;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+
+.slide {
+  float: left;
+}
+
+#page-control1:checked ~ .slidesWrapper .slides {
+  left: -0px;
+}
+
+#page-control2:checked ~ .slidesWrapper .slides {
+  left: -400px;
+}
+
+#page-control3:checked ~ .slidesWrapper .slides {
+  left: -800px;
+}
+
+#page-control4:checked ~ .slidesWrapper .slides {
+  left: -1200px;
+}
+
+#page-control5:checked ~ .slidesWrapper .slides {
+  left: -1600px;
+}

@@ -1,0 +1,37 @@
+@mixin prefix($property, $value, $apply-to: property, $prefixes: -webkit -khtml -moz -ms -o) {
+    @if $apply-to == property {
+        @each $prefix in $prefixes {
+            #{$prefix}-#{$property}: $value;
+        }
+    } @else if $apply-to == value {
+        @each $prefix in $prefixes {
+            #{$property}: $prefix + -$value;
+        }
+    } @else if $apply-to == both {
+        @each $prefix in $prefixes {
+            #{$prefix}-#{$property}: $prefix + -$value;
+        }
+    }
+    #{$property}: $value;
+}
+@mixin animation($name,$duration,$timing,$delay,$count){
+	@include prefix(animation-name,$name);
+	@include prefix(animation-duration,$duration);
+	@include prefix(animation-timing-function,$timing);
+	@include prefix(animation-delay,$delay);
+	@include prefix(animation-iteration-count,$count);
+}
+@mixin setKeyframe($anime_name){
+	@-webkit-keyframes $anime_name{
+		@content;
+	}
+	@-o-keyframes $anime_name{
+		@content;
+	}
+	@-moz-keyframes $anime_name{
+		@content;
+	}
+	@keyframes $anime_name{
+		@content;
+	}
+}
