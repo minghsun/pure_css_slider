@@ -44,8 +44,7 @@
 	    		e.stopPropagation();
 	    		$('.active').removeClass('active');
 	    		$(e.currentTarget).addClass('active');
-	    		$('link[href^="css"]').attr('href','css/'+$(e.currentTarget).data('fx')+'.css');
-	    		//console.log($(e.currentTarget).data("fx"))
+	    		$('link[href^="css"]:not([href="css/fontello-embedded.css"]').attr('href','css/'+$(e.currentTarget).data('fx')+'.css');
 	    	}
 	    });
 	    </script>
